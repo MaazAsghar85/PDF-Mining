@@ -97,5 +97,5 @@ def extract_content_by_font_size_and_style(pdf_path):
     List.display()
 
 if __name__ == "__main__":
-    pdf_path = r'.\my2.pdf'
+    pdf_path = 'my2.pdf'
     extract_content_by_font_size_and_style(pdf_path)

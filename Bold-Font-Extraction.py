@@ -64,5 +64,5 @@ def extract_content_by_font_size_and_style(pdf_path):
             print(f"Font Size: {font_size}, Style: {style}, Text: {text}")
 
 if __name__ == "__main__":
-    pdf_path = r'.\data_2336.pdf'
+    pdf_path = 'data_2336.pdf'
     extract_content_by_font_size_and_style(pdf_path)
