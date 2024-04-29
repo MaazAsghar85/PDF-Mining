@@ -105,6 +105,8 @@ def extract_content_by_font_size_and_style(pdf_path):
     keys = my_dict.keys()
     values = my_dict.values()
 
+    print('\n\n\nExtracted Data from Instagram User [File data_2336.pdf]\n')
+
     for key, value in zip(keys, values):
         print('\n', key, ": ", value)
 

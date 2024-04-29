@@ -94,6 +94,8 @@ def extract_content_by_font_size_and_style(pdf_path):
                 fonts_list.sort(reverse = True)
             List.append(text, font_size, style)
 
+    print('\n\n\nTree of Data from Scientific PDF [File my2.pdf]\n')
+
     List.display()
 
 if __name__ == "__main__":
