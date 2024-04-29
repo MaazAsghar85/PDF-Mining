@@ -18,6 +18,8 @@ def extract_content_by_font_size_and_style(pdf_path):
     current_style = None
 
     for page_num in range(len(doc)):
+        if page_num == 21:
+            break
         page = doc.load_page(page_num)
         blocks = page.get_text("dict")["blocks"]
         
@@ -32,6 +34,8 @@ def extract_content_by_font_size_and_style(pdf_path):
                         style = "Bold" if bold else "Regular"
 
                         # Check if the current span continues the current segment
+                        if text == "Meta Platforms Business Record" or "Page" in text:
+                            continue
                         if font_size == current_font_size and style == current_style:
                             current_text += " " + text
                         else:
@@ -90,16 +94,19 @@ def extract_content_by_font_size_and_style(pdf_path):
 
     found = False
     for text, font_size, style in content:
-        if text == 'Service' or text == 'Target':
+        # print("\t", text)
+        if text in ['Service', 'Target', 'Account Identifier', 'Name First', 'Registered Email Addresses', 'Registration Ip', 'Profile Picture Photo ID', 'Following']:
             myText = text
             found = True
             continue
         if found:
             my_dict.add(myText, text)
             found = False
+    keys = my_dict.keys()
+    values = my_dict.values()
 
-    print("\nService: ", my_dict.get("Service"))
-    print("\nTarget: ", my_dict.get("Target"))
+    for key, value in zip(keys, values):
+        print('\n', key, ": ", value)
 
 if __name__ == "__main__":
     pdf_path = 'data_2336.pdf'

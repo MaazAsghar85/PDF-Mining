@@ -17,4 +17,4 @@ EXPOSE 8000
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "Pdf-Tree.py"]
+CMD python Pdf-Tree.py && python Extraction.py
